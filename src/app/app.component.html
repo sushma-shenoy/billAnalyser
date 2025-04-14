@@ -38,7 +38,7 @@
   .flex {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
   }
 
   .flexColumn {
@@ -74,13 +74,23 @@
     font-size: 36px;
   }
 
-  .expenseText {}
+  .expenseMoney{
+    font-size: 15px;
+    color: white;
+  }
 
   .listContainer {
     background-color: #a6d9c375;
     border-radius: 50px 50px 0 0;
     margin-top: -30px;
     padding-top: 30px;
+  }
+  .date {
+font-size: 11px
+  }
+  .price{
+    font-weight: bolder;
+    color: #a6d9c3;
   }
 </style>
 <html>
@@ -91,22 +101,38 @@
     <p class="totalAmount">$500</p>
   </div>
   <div class="listContainer">
-    <ul>
-      <li>
-        <div class="list-item">
-          <div>XYZ store, XYZ</div>
-          <div>
-            <div>
-              Total money spent
+    <div class="ag-format-container">
+      <div class="ag-courses_box">
+        <div *ngFor="let item of groceryStoreList" class="ag-courses_item">
+          <div  href="#" class="ag-courses-item_link">
+            <div class="ag-courses-item_bg">
+
             </div>
-            <div>$200</div>
+    
+            <div class="flex justify-space-between">
+              <div class="ag-courses-item_title">
+                {{item.storeName}}
+              </div>
+              <div>
+              <div class="expenseMoney">Total</div>
+              <p class="float-end price">{{item.price}}</p>
+              </div>
+            </div>
+    
+            <div class="ag-courses-item_date-box">
+              <span class="ag-courses-item_date date">Last Transaction:{{item.lastTransaction}}</span>
+            </div>
           </div>
         </div>
-      </li>
-    </ul>
+   
+      </div>
+    </div>
   </div>
 
 </div>
+
+
+
 <input class="form-control" type="file" (change)="onFileSelected($event)" />
 <div>{{extractedText}}</div>
 </html>

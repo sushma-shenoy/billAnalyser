@@ -17,6 +17,15 @@ export class AppComponent  {
   loading: boolean = false;
   searchText = '';
   searchResult = '';
+  groceryStoreList= new Array()
+  ngOnInit(){
+    this.groceryStoreList= [
+     {storeName:"Indian Cash and Carry",price: '$100',lastTransaction: '12/23/2025'},
+     {storeName:"Apna Mandi",price: '$100',lastTransaction: '12/23/2025'},
+     {storeName:"Safeway",price: '$100',lastTransaction: '12/23/2025'},
+     {storeName:"Walmart",price: '$100',lastTransaction: '12/23/2025'}
+    ]
+  }
   onFileSelected(event: any): void {
     const file = event.target.files[0];
     if (file) {
