@@ -9,8 +9,9 @@
 
 <style>
   :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
+    font-family: "National Park", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     color: #333;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -30,6 +31,20 @@
     margin: 0;
   }
 
+  .f-25 {
+    font-size: 20px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flexColumn {
+    flex-direction: column;
+  }
+
   .spacer {
     flex: 1;
   }
@@ -41,25 +56,58 @@
   .topHeaderCard {
     padding: 10px;
     background: #08009c;
-    background: linear-gradient(90deg, rgba(8, 0, 156, 1) 22%, rgba(8, 35, 138, 1) 43%, rgba(7, 54, 151, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    background-image: linear-gradient(to right top, #122038, #234a61, #407986, #6ca9a6, #a6d9c3);
+    border-radius: 63px;
 
     margin: 0 auto;
+    color: white;
+
     position: relative;
   }
 
   .contsiner {
     padding: 0 10px
   }
+
+  .totalAmount {
+    font-weight: 600;
+    font-size: 36px;
+  }
+
+  .expenseText {}
+
+  .listContainer {
+    background-color: #a6d9c375;
+    border-radius: 50px 50px 0 0;
+    margin-top: -30px;
+    padding-top: 30px;
+  }
 </style>
 <html>
 <div class="background container">
 
-  <div class="topHeaderCard">
-    <p class="">Total</p>
-    <p>$500</p>
+  <div class="topHeaderCard flex flexColumn">
+    <p class="expenseText f-25">Total Expense</p>
+    <p class="totalAmount">$500</p>
+  </div>
+  <div class="listContainer">
+    <ul>
+      <li>
+        <div class="list-item">
+          <div>XYZ store, XYZ</div>
+          <div>
+            <div>
+              Total money spent
+            </div>
+            <div>$200</div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 
 </div>
-
+<input class="form-control" type="file" (change)="onFileSelected($event)" />
+<div>{{extractedText}}</div>
 </html>
 <router-outlet></router-outlet>
